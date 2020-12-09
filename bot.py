@@ -32,13 +32,13 @@ async def on_message(message):
 #discordは2000文字以上のメッセージを送れません。
         sub = 0
         while True:
-            if sub + 2000 < len(str(q)):
+            if sub + 1500 < len(str(q)):
                 await message.channel.send('```py\n' + str(q)[sub:sub + 1500] + '```')
             elif sub < len(str(q)) - 8:
                 await message.channel.send('```py\n' + str(q)[sub:] + '```')
             else:
                 break
-            sub += 2000
+            sub += 1500
     elif message.content.startswith('qrem'):
         q.remove(message.content[5:])
         await message.add_reaction('👍')
